@@ -1,0 +1,143 @@
+.men-bestsellers {
+    
+    
+    font-family: "HM Sans Regular", sans-serif;
+    padding-left: 300px;
+    padding-right: 300px;
+    margin-top: -5%; /* Adjusted top margin to create spacing */
+}
+  
+  /* Price Bar */
+.price-bar {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .price-bar h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* Product Section */
+  .product-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Scroll Buttons */
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    transition: transform 0.2s ease;
+  }
+  
+  .scroll-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+    color: red;
+  }
+  
+  .scroll-btn.left {
+    left: -40px;
+  }
+  
+  .scroll-btn.right {
+    right: -40px;
+  }
+  
+  .scroll-btn::before,
+.scroll-btn::after {
+  content: none !important;
+}
+
+  
+  
+  /* Product Row */
+  .product-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-behavior: smooth;
+    padding: 10px 0;
+  }
+  
+  .product-row::-webkit-scrollbar {
+    height: 8px;
+  }
+  
+  .product-row::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Product Box */
+  .product-box {
+    flex: 0 0 auto;
+    width: 150px;
+    text-align: center;
+  }
+  
+  .product-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .product-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin: 5px 0;
+  }
+  
+  .product-price {
+    font-size: 12px;
+    color: #777;
+    margin: 5px 0;
+  }
+  
+  /* Color Dots */
+  .product-colors {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .color-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+  }
+  
+  .color-dot.black {
+    background-color: black;
+  }
+  
+  .color-dot.gray {
+    background-color: gray;
+  }
+  
+  .color-dot.white {
+    background-color: white;
+  }
+  
+  .color-dot.green {
+    background-color: green;
+  }
+  
+  .color-dot.blue {
+    background-color: blue;
+  }
+  
+  .color-dot.red {
+    background-color: red;
+  }

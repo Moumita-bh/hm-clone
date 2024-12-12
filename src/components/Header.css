@@ -1,0 +1,357 @@
+body {
+  font-family: "HM Sans Regular", HMSans-Regular, "L7JA 1 Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "Meiryo", "MS P Gothic", "MS PGothic", sans-serif; /* Fixed missing quotation mark */
+  font-size: 16px; /* Base font size */
+  font-weight: 400; /* Regular weight */
+  line-height: 20px; /* Line height */
+  color: rgb(34, 34, 34); /* Font color */
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ffffff;
+}
+
+.header-left {
+  flex: 1;
+}
+
+.header-links {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: rgb(34, 34, 34);
+  padding-top: 5px;
+  padding-bottom: 100px;
+  padding-left: 5px;
+}
+
+.header-links li {
+  cursor: pointer;
+}
+
+.header-links img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  margin-left: 20px; /* Space between "newspaper" and the image */
+  transition: filter 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.header-links img:hover {
+  filter: brightness(0) saturate(100%) invert(24%) sepia(97%) saturate(7425%) hue-rotate(356deg) brightness(100%) contrast(104%); /* This filter will create a red hover effect for images */
+}
+
+.header-center {
+  flex: 1;
+  text-align: center;
+}
+
+.logo {
+  height: 150px;
+  padding-top: 2px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 5px;
+  color: rgb(34, 34, 34);
+  padding-right: 40px;
+}
+
+.nav-links li {
+  cursor: pointer;
+  position: relative; /* Required for positioning the underline */
+}
+
+.nav-links li:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px; /* Adjust underline thickness */
+  background-color: black; /* Set underline color to black */
+}
+
+.nav-links .dropdown {
+  position: relative;
+  cursor: pointer;
+}
+
+.dropdown-menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Center the dropdown content */
+  align-items: flex-start; /* Align all items at the top */
+  gap: 50px; /* Space between columns */
+  position: absolute;
+  top: 100%; /* Below the dropdown trigger */
+  left: 50%;
+  transform: translateX(-50%); /* Center the menu */
+  background-color: #ffffff;
+  padding: 30px 40px; /* Consistent padding */
+  border: 1px solid #eaeaea;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 10;
+  min-width: 800px; /* Set minimum width */
+  max-width: 5200px; /* Prevent overly wide dropdowns */
+  visibility: hidden; /* Initially hidden */
+  opacity: 0; /* Transparent by default */
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.nav-links .dropdown:hover .dropdown-menu {
+  visibility: visible;
+  opacity: 1; /* Make dropdown visible on hover */
+}
+
+.dropdown-menu .dropdown-column {
+  flex: 1; /* Ensure equal column widths */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Spacing between items in each column */
+  text-align: left; /* Align text within each column */
+}
+
+.dropdown-menu h4,
+.dropdown-menu h3 {
+  margin: 0;
+  font-size: 14px; /* Consistent font size for headers */
+  font-weight: bold; /* Bold headings */
+  color: #222222; /* Dark text color */
+}
+
+.dropdown-menu p {
+  margin: 0;
+  font-size: 13px; /* Match item font size */
+  font-weight: normal; /* Normal weight for text items */
+  color: #555555; /* Subtle gray color for items */
+}
+
+.dropdown-menu h4:hover,
+.dropdown-menu h3:hover,
+.dropdown-menu p:hover {
+  color: #000000; /* Darken text on hover */
+}
+
+/* Ensure consistent height across all columns */
+.dropdown-menu .dropdown-column h4,
+.dropdown-menu .dropdown-column h3,
+.dropdown-menu .dropdown-column p {
+  line-height: 1.5; /* Add consistent line height */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    flex-direction: column; /* Stack columns vertically on small screens */
+    width: auto;
+    padding: 20px;
+  }
+}
+
+
+
+.header-right {
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+  align-items: flex-end; /* Align to the right */
+  gap: 5px; /* Space between sections */
+}
+
+.user-actions {
+  display: flex;
+  justify-content: flex-end; /* Align items in a row */
+  align-items: center; /* Align vertically */
+  gap: 20px; /* Space between icon groups */
+  padding-left: 30px;
+}
+
+.icon {
+  display: flex;
+  align-items: center; /* Center icon and text vertically */
+  cursor: pointer;
+  gap: 2px; /* Space between icon and text */
+}
+
+.icon i {
+  font-size: 18px; /* Icon size */
+  transition: color 0.3s ease;
+}
+
+.icon:hover i {
+  color: grey; /* Hover effect */
+}
+
+.icon span {
+  color: rgb(34, 34, 34); /* Text color */
+  font-size: 14px; /* Match text size in the example */
+  font-weight: normal; /* Adjust text weight */
+}
+
+/* Overlay */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Dialog Box */
+.dialog-box {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: center;
+}
+
+/* Close Button */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Dialog Title */
+.dialog-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Dialog Subtitle */
+.dialog-subtitle {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 20px;
+}
+
+/* Form */
+.dialog-form label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.dialog-form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Form Options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 12px;
+}
+
+.forgot-password {
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Buttons */
+.sign-in-button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.secondary-button {
+  background: white;
+  color: black;
+  border: 1px solid black;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Membership Link */
+.membership-link {
+  font-size: 12px;
+  color: gray;
+  margin-top: 10px;
+  display: block;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+/* Search Bar */
+.search-bar {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-bottom: 1px solid #000;
+  padding-right: 20px; /* Adjust padding-right to shift the entire search bar content */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.search-icon {
+  font-size: 18px;
+  color: rgb(34, 34, 34);
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  line-height: 20px;
+  padding: 10px;
+  width: 150px; /* Keep the width fixed */
+  color: rgb(34, 34, 34);
+}
+
+.search-input::placeholder {
+  color: rgb(34, 34, 34);
+  font-style: normal;
+}
+
+.header-right .user-actions {
+  margin-bottom: 20px;
+}
